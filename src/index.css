@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+  @apply h-full;
+}
+
 body {
   @apply bg-black;
 }
 
 #root {
-  @apply pb-12;
-  @apply bg-[#444];
+  @apply flex flex-col bg-[#444] pb-12 overflow-auto;
 }

@@ -5,7 +5,11 @@ module.exports = {
     fontFamily: {
       sans: ["Arial", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      screens: {
+        xs: "400px",
+      },
+    },
   },
   plugins: [],
 };
