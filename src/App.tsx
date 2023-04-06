@@ -210,7 +210,7 @@ export const App = () => {
       </div>
 
       {tab === "Home" && (
-        <div className="bg-[#303030] text-[#ababab] text-sm overflow-x-auto shrink-0">
+        <div className="bg-[#303030] text-[#ababab] text-sm overflow-x-auto shrink-0 h-[120px]">
           <div className="flex p-3 min-w-[600px]">
             <div className="flex gap-1">
               <button
@@ -463,79 +463,81 @@ export const App = () => {
       )}
 
       {tab === "Music" && (
-        <div className="bg-[#303030] text-white text-sm overflow-x-auto shrink-0">
-          <div className="flex justify-around p-3 min-w-[650px]">
-            <a
-              className="hover:underline"
-              href="https://music.amazon.com/artists/B07CVPTF8Q/peter-mcpoland"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Amazon
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://music.apple.com/artist/peter-mcpoland/1379798503"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apple Music
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://music.apple.com/artist/peter-mcpoland/1379798503"
-              target="_blank"
-              rel="noreferrer"
-            >
-              iTunes
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://www.pandora.com/artist/peter-mcpoland/ARPxZbZKtJj2hbk"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Pandora
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://soundcloud.com/user-10959040"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Soundcloud
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://open.spotify.com/artist/23E65IfLBGQv0FBrMwCcG2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Spotify
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://www.youtube.com/channel/UC0KqD0SzttJQHyew9yK5qaQ"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Youtube
-            </a>
-            <div className="border-r border-black" />
-            <a
-              className="hover:underline"
-              href="https://music.youtube.com/channel/UCVn2zONmsnTIrSqA7l_qWyw"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Youtube Music
-            </a>
+        <div className="shrink-0 h-[120px]">
+          <div className="bg-[#303030] text-white text-sm overflow-x-auto shrink-0">
+            <div className="flex justify-around p-3 min-w-[650px]">
+              <a
+                className="hover:underline"
+                href="https://music.amazon.com/artists/B07CVPTF8Q/peter-mcpoland"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Amazon
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Apple Music
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+                target="_blank"
+                rel="noreferrer"
+              >
+                iTunes
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://www.pandora.com/artist/peter-mcpoland/ARPxZbZKtJj2hbk"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Pandora
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://soundcloud.com/user-10959040"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Soundcloud
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://open.spotify.com/artist/23E65IfLBGQv0FBrMwCcG2"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Spotify
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://www.youtube.com/channel/UC0KqD0SzttJQHyew9yK5qaQ"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Youtube
+              </a>
+              <div className="border-r border-black" />
+              <a
+                className="hover:underline"
+                href="https://music.youtube.com/channel/UCVn2zONmsnTIrSqA7l_qWyw"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Youtube Music
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -564,99 +566,101 @@ export const App = () => {
       )}
 
       {tab === "Socials" && (
-        <div className="flex justify-around bg-[#303030] p-3 text-white text-sm shrink-0">
-          <a
-            className="hover:underline"
-            href="https://music.amazon.com/artists/B07CVPTF8Q/peter-mcpoland"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Instagram
-          </a>
-          <div className="border-r border-black" />
-          <a
-            className="hover:underline"
-            href="https://music.apple.com/artist/peter-mcpoland/1379798503"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Twitter
-          </a>
-          <div className="border-r border-black" />
-          <a
-            className="hover:underline"
-            href="https://music.apple.com/artist/peter-mcpoland/1379798503"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </a>
-          <div className="border-r border-black" />
-          <a
-            className="hover:underline"
-            href="https://www.pandora.com/artist/peter-mcpoland/ARPxZbZKtJj2hbk"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Youtube
-          </a>
-          <div className="border-r border-black" />
-          <a
-            className="hover:underline"
-            href="https://soundcloud.com/user-10959040"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Tiktok
-          </a>
+        <div className="shrink-0 h-[120px]">
+          <div className="flex justify-around bg-[#303030] p-3 text-white text-sm shrink-0">
+            <a
+              className="hover:underline"
+              href="https://music.amazon.com/artists/B07CVPTF8Q/peter-mcpoland"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+            <div className="border-r border-black" />
+            <a
+              className="hover:underline"
+              href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Twitter
+            </a>
+            <div className="border-r border-black" />
+            <a
+              className="hover:underline"
+              href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </a>
+            <div className="border-r border-black" />
+            <a
+              className="hover:underline"
+              href="https://www.pandora.com/artist/peter-mcpoland/ARPxZbZKtJj2hbk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Youtube
+            </a>
+            <div className="border-r border-black" />
+            <a
+              className="hover:underline"
+              href="https://soundcloud.com/user-10959040"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Tiktok
+            </a>
+          </div>
         </div>
       )}
 
-      {tab !== "Videos" && (
-        <div
-          ref={canvasContainerRef}
-          className="flex flex-col h-full p-5 overflow-y-hidden overflow-x-auto"
-        >
-          <div className="h-full aspect-[30/16] bg-white drop-shadow-[10px_10px_0px_rgba(0,0,0,0.3)] m-auto">
-            <ReactDraw
-              id="react-draw"
-              topBarTools={[
-                eraseTool,
-                squareTool,
-                freeDrawTool,
-                circleTool,
-                selectTool,
-                diamondTool,
-                straightLineTool,
-                textAreaTool,
-                arrowTool,
-              ]}
-              bottomBarTools={[undoTool, redoTool, trashTool, duplicateTool]}
-              hideTopBar
-              hideBottomBar
-              shouldSelectAfterCreate={false}
-              styleComponents={{
-                color: { order: 3, component: ColorStyle },
-                background: { order: 4, component: BackgroundStyle },
-                lineWidth: { order: 1, component: LineWidthStyle },
-                opacity: { order: 0, component: OpacityStyle },
-                fontSize: { order: 2, component: FontSizeStyle },
-              }}
-              contextGetter={(contextGetter) => {
-                contextGetterRef.current = contextGetter;
-              }}
-              layout="fit"
-            >
-              <img
-                className="pointer-events-none selection:bg-transparent"
-                alt="Piggy art"
-                src={piggy}
-              />
-            </ReactDraw>
-          </div>
-          <div className="w-full text-center pt-8" />
+      <div
+        ref={canvasContainerRef}
+        className={`flex flex-col h-full p-5 overflow-y-hidden overflow-x-auto ${
+          tab === "Videos" ? "invisible" : ""
+        }`}
+      >
+        <div className="h-full aspect-[30/16] bg-white drop-shadow-[10px_10px_0px_rgba(0,0,0,0.3)] m-auto">
+          <ReactDraw
+            id="react-draw"
+            topBarTools={[
+              eraseTool,
+              squareTool,
+              freeDrawTool,
+              circleTool,
+              selectTool,
+              diamondTool,
+              straightLineTool,
+              textAreaTool,
+              arrowTool,
+            ]}
+            bottomBarTools={[undoTool, redoTool, trashTool, duplicateTool]}
+            hideTopBar
+            hideBottomBar
+            shouldSelectAfterCreate={false}
+            styleComponents={{
+              color: { order: 3, component: ColorStyle },
+              background: { order: 4, component: BackgroundStyle },
+              lineWidth: { order: 1, component: LineWidthStyle },
+              opacity: { order: 0, component: OpacityStyle },
+              fontSize: { order: 2, component: FontSizeStyle },
+            }}
+            contextGetter={(contextGetter) => {
+              contextGetterRef.current = contextGetter;
+            }}
+            layout="fit"
+          >
+            <img
+              className="pointer-events-none selection:bg-transparent"
+              alt="Piggy art"
+              src={piggy}
+            />
+          </ReactDraw>
         </div>
-      )}
+        <div className="w-full text-center pt-8" />
+      </div>
 
       <footer className="fixed bottom-0 w-full text-center uppercase text-white text-[10px] p-2 bg-[#121212]">
         <div className="block lg:hidden absolute w-full text-center p-3 text-lg bottom-full capitalize pointer-events-none">
