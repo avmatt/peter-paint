@@ -13,5 +13,5 @@ body {
 }
 
 #root {
-  @apply flex flex-col bg-[#444] pb-12 overflow-auto;
+  @apply flex flex-col bg-[#444] pb-20 xs:pb-16 md:pb-12 overflow-auto;
 }

@@ -46,6 +46,25 @@ export const App = () => {
   const [color, setColor] = useState("#000");
   const [brushSize, setBrushSize] = useState("2");
   const contextGetterRef = useRef<() => ReactDrawContext>();
+  const canvasContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleResize = () => {
+    if (canvasContainerRef.current) {
+      canvasContainerRef.current.scrollLeft =
+        (canvasContainerRef.current.scrollWidth -
+          canvasContainerRef.current.clientWidth) /
+        2;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSelectTool = (toolId: string) => {
     if (contextGetterRef.current) {
@@ -594,50 +613,59 @@ export const App = () => {
       )}
 
       {tab !== "Videos" && (
-        <div className="p-5 h-full">
-          <div className="flex flex-col h-full">
-            <div className="max-w-4xl aspect-[30/16] bg-white drop-shadow-[10px_10px_0px_rgba(0,0,0,0.3)] m-auto">
-              <ReactDraw
-                id="react-draw"
-                topBarTools={[
-                  eraseTool,
-                  squareTool,
-                  freeDrawTool,
-                  circleTool,
-                  selectTool,
-                  diamondTool,
-                  straightLineTool,
-                  textAreaTool,
-                  arrowTool,
-                ]}
-                bottomBarTools={[undoTool, redoTool, trashTool, duplicateTool]}
-                hideTopBar
-                hideBottomBar
-                shouldSelectAfterCreate={false}
-                styleComponents={{
-                  color: { order: 3, component: ColorStyle },
-                  background: { order: 4, component: BackgroundStyle },
-                  lineWidth: { order: 1, component: LineWidthStyle },
-                  opacity: { order: 0, component: OpacityStyle },
-                  fontSize: { order: 2, component: FontSizeStyle },
-                }}
-                contextGetter={(contextGetter) => {
-                  contextGetterRef.current = contextGetter;
-                }}
-                layout="fit"
-              >
-                <img
-                  className="pointer-events-none selection:bg-transparent"
-                  alt="Piggy art"
-                  src={piggy}
-                />
-              </ReactDraw>
-            </div>
+        <div
+          ref={canvasContainerRef}
+          className="flex flex-col h-full p-5 overflow-y-hidden overflow-x-auto"
+        >
+          <div className="h-full aspect-[30/16] bg-white drop-shadow-[10px_10px_0px_rgba(0,0,0,0.3)] m-auto">
+            <ReactDraw
+              id="react-draw"
+              topBarTools={[
+                eraseTool,
+                squareTool,
+                freeDrawTool,
+                circleTool,
+                selectTool,
+                diamondTool,
+                straightLineTool,
+                textAreaTool,
+                arrowTool,
+              ]}
+              bottomBarTools={[undoTool, redoTool, trashTool, duplicateTool]}
+              hideTopBar
+              hideBottomBar
+              shouldSelectAfterCreate={false}
+              styleComponents={{
+                color: { order: 3, component: ColorStyle },
+                background: { order: 4, component: BackgroundStyle },
+                lineWidth: { order: 1, component: LineWidthStyle },
+                opacity: { order: 0, component: OpacityStyle },
+                fontSize: { order: 2, component: FontSizeStyle },
+              }}
+              contextGetter={(contextGetter) => {
+                contextGetterRef.current = contextGetter;
+              }}
+              layout="fit"
+            >
+              <img
+                className="pointer-events-none selection:bg-transparent"
+                alt="Piggy art"
+                src={piggy}
+              />
+            </ReactDraw>
           </div>
+          <div className="w-full text-center pt-8" />
         </div>
       )}
 
       <footer className="fixed bottom-0 w-full text-center uppercase text-white text-[10px] p-2 bg-[#121212]">
+        <div className="block lg:hidden absolute w-full text-center p-3 text-lg bottom-full capitalize pointer-events-none">
+          <div className="bg-[#333] border border-[#555] inline-block px-3">
+            <span className="relative bottom-0.5">&larr; </span>
+            Scroll
+            <span className="relative bottom-0.5"> &rarr;</span>
+          </div>
+        </div>
         &copy; 2023 Sony Music Entertainment <br />
         <a
           href="http://www.sonymusic.com/privacy/termsandconditions.html"
