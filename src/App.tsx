@@ -38,6 +38,7 @@ import circleIcon from "./images/icon-circle.png";
 import diamondIcon from "./images/icon-diamond.png";
 import brushIcon from "./images/icon-brush.png";
 import piggy from "./images/piggy-website-pic-2.png";
+import shareBackground from "./images/bg-share.png";
 
 export const App = () => {
   const navOptions = ["Home", "Music", "Videos", "Socials"] as const;
@@ -47,6 +48,7 @@ export const App = () => {
   const [brushSize, setBrushSize] = useState("2");
   const contextGetterRef = useRef<() => ReactDrawContext>();
   const canvasContainerRef = useRef<HTMLDivElement>(null);
+  const [showShare, setShowShare] = useState(false);
 
   const handleResize = () => {
     if (canvasContainerRef.current) {
@@ -86,6 +88,8 @@ export const App = () => {
         downloadLink.download = "peter-mcpoland.png";
         document.body.appendChild(downloadLink);
         downloadLink.click();
+
+        setShowShare(true);
       });
     }
   };
@@ -204,6 +208,14 @@ export const App = () => {
             className="relative top-px px-3 sm:px-6 py-1 text-white/50 hover:text-white hover:bg-[#202020] border-b border-[#555]"
           >
             Merch
+          </a>
+          <a
+            href="https://petermcpoland.lnk.to/presave"
+            target="_blank"
+            rel="noreferrer"
+            className="relative top-px px-3 sm:px-6 py-1 whitespace-nowrap text-white/50 hover:text-white hover:bg-[#202020] border-b border-[#555]"
+          >
+            Pre-Save
           </a>
           <div className="relative top-px w-full border-b border-[#555]" />
         </div>
@@ -468,7 +480,7 @@ export const App = () => {
             <div className="flex justify-around p-3 min-w-[650px]">
               <a
                 className="hover:underline"
-                href="https://music.amazon.com/artists/B07CVPTF8Q/peter-mcpoland"
+                href="https://petermcpoland.lnk.to/DigitalSilence/AmazonMusic"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -477,7 +489,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+                href="https://petermcpoland.lnk.to/DigitalSilence/AppleMusic"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -486,7 +498,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+                href="https://petermcpoland.lnk.to/DigitalSilence/iTunes"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -495,7 +507,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://www.pandora.com/artist/peter-mcpoland/ARPxZbZKtJj2hbk"
+                href="https://petermcpoland.lnk.to/DigitalSilence/Pandora"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -504,7 +516,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://soundcloud.com/user-10959040"
+                href="https://petermcpoland.lnk.to/DigitalSilence/Soundcloud"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -513,7 +525,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://open.spotify.com/artist/23E65IfLBGQv0FBrMwCcG2"
+                href="https://petermcpoland.lnk.to/DigitalSilence/Spotify"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -522,7 +534,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://www.youtube.com/channel/UC0KqD0SzttJQHyew9yK5qaQ"
+                href="https://petermcpoland.lnk.to/DigitalSilence/YouTube"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -531,7 +543,7 @@ export const App = () => {
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://music.youtube.com/channel/UCVn2zONmsnTIrSqA7l_qWyw"
+                href="https://petermcpoland.lnk.to/DigitalSilence/YouTubeMusic"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -547,17 +559,16 @@ export const App = () => {
           <div className="max-w-4xl p-10 m-auto text-center">
             <iframe
               className="w-full aspect-video"
-              src="https://www.youtube.com/embed/RsYOsgh3v1o"
+              src="https://www.youtube.com/embed/2x8CMV-Jxg8"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-            <div className="text-2xl font-bold mt-2">New At 9</div>
             <a
-              href="https://www.youtube.com/watch?v=RsYOsgh3v1o"
+              href="https://www.youtube.com/watch?v=2x8CMV-Jxg8"
               target="_blank"
               rel="noreferrer"
-              className="inline-block px-4 py-0.5 mt-1 text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,rgba(115,138,188,1)_0%,rgba(181,209,225,1)_100%)] hover:bg-[linear-gradient(180deg,rgba(181,209,225,1)_0%,rgba(115,138,188,1)_100%)]"
+              className="inline-block px-4 py-0.5 mt-3 text-black text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,#7fdcdd_0%,#9ffcfd_100%)] hover:bg-[linear-gradient(180deg,#9ffcfd_0%,#7fdcdd_100%)]"
             >
               Watch Now
             </a>
@@ -570,7 +581,7 @@ export const App = () => {
           <div className="flex justify-around bg-[#303030] p-3 text-white text-sm shrink-0">
             <a
               className="hover:underline"
-              href="https://music.amazon.com/artists/B07CVPTF8Q/peter-mcpoland"
+              href="https://www.instagram.com/petermcpoland/"
               target="_blank"
               rel="noreferrer"
             >
@@ -579,7 +590,7 @@ export const App = () => {
             <div className="border-r border-black" />
             <a
               className="hover:underline"
-              href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+              href="https://twitter.com/petermcpoland"
               target="_blank"
               rel="noreferrer"
             >
@@ -588,7 +599,7 @@ export const App = () => {
             <div className="border-r border-black" />
             <a
               className="hover:underline"
-              href="https://music.apple.com/artist/peter-mcpoland/1379798503"
+              href="https://www.facebook.com/petermcpolandmusic"
               target="_blank"
               rel="noreferrer"
             >
@@ -597,7 +608,7 @@ export const App = () => {
             <div className="border-r border-black" />
             <a
               className="hover:underline"
-              href="https://www.pandora.com/artist/peter-mcpoland/ARPxZbZKtJj2hbk"
+              href="https://petermcpoland.lnk.to/DigitalSilence/YouTube"
               target="_blank"
               rel="noreferrer"
             >
@@ -606,7 +617,7 @@ export const App = () => {
             <div className="border-r border-black" />
             <a
               className="hover:underline"
-              href="https://soundcloud.com/user-10959040"
+              href="https://www.tiktok.com/@petermcpoland?"
               target="_blank"
               rel="noreferrer"
             >
@@ -661,6 +672,23 @@ export const App = () => {
         </div>
         <div className="w-full text-center pt-8" />
       </div>
+
+      {showShare && (
+        <div className="fixed inset-0 bg-black/70 flex">
+          <div className="relative w-80 m-auto pr-14 pb-36 border-white border-8 p-4 bg-[url(images/bg-share.png)] bg-no-repeat bg-top bg-cover">
+            It looks like you are trying to share your drawing...
+            <br />
+            <br />
+            Don't forget to include hashtag <strong>#digitalsilence</strong>
+            <button
+              className="absolute left-5 bottom-12 px-4 py-0.5 mt-1 text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,#7fdcdd_0%,#9ffcfd_100%)] hover:bg-[linear-gradient(180deg,#9ffcfd_0%,#7fdcdd_100%)]"
+              onClick={() => setShowShare(false)}
+            >
+              Ok, thanks!
+            </button>
+          </div>
+        </div>
+      )}
 
       <footer className="fixed bottom-0 w-full text-center uppercase text-white text-[10px] p-2 bg-[#121212]">
         <div className="block lg:hidden absolute w-full text-center p-3 text-lg bottom-full capitalize pointer-events-none">
