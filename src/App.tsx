@@ -38,11 +38,10 @@ import circleIcon from "./images/icon-circle.png";
 import diamondIcon from "./images/icon-diamond.png";
 import brushIcon from "./images/icon-brush.png";
 import piggy from "./images/piggy-website-pic-2.png";
-import shareBackground from "./images/bg-share.png";
 
 export const App = () => {
-  const navOptions = ["Home", "Music", "Videos", "Socials"] as const;
-  const [tab, setTab] = useState<typeof navOptions[number] | null>("Home");
+  const navOptions = ["Home", "Music", "Videos", "Socials", "Tour"] as const;
+  const [tab, setTab] = useState<(typeof navOptions)[number] | null>("Home");
   const [tool, setTool] = useState<string | null>(null);
   const [color, setColor] = useState("#000");
   const [brushSize, setBrushSize] = useState("2");
@@ -145,6 +144,12 @@ export const App = () => {
     }
   }, [contextGetterRef, handleSelectBrushSize, tool]);
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://widget.seated.com/app.js";
+    document.body.appendChild(script);
+  }, [tab]);
+
   return (
     <>
       <div className="fixed z-10 top-0 left-0 w-full sm:flex bg-black p-2 text-white gap-1 shrink-0">
@@ -181,12 +186,12 @@ export const App = () => {
           <h1 className="text-2xl font-bold">
             Peter McPoland<span className="hidden xs:inline"> - </span>
             <br className="xs:hidden" />
-            Digital Silence
+            Blue
           </h1>
         </div>
       </div>
 
-      <div className="bg-black text-md pt-32 xs:pt-24 sm:pt-14 overflow-x-auto overflow-y-hidden shrink-0">
+      <div className="bg-black text-md leading-[48px] pt-32 xs:pt-24 sm:pt-14 overflow-x-auto overflow-y-hidden shrink-0">
         <div className="flex min-w-[360px] border-b border-[#555]">
           {navOptions.map((option) => (
             <button
@@ -480,74 +485,20 @@ export const App = () => {
             <div className="flex justify-around p-3 min-w-[650px]">
               <a
                 className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/AmazonMusic"
+                href="https://petermcpoland.lnk.to/DigitalSilence"
                 target="_blank"
                 rel="noreferrer"
               >
-                Amazon
+                Digital Silence
               </a>
               <div className="border-r border-black" />
               <a
                 className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/AppleMusic"
+                href="https://petermcpoland.lnk.to/Blue"
                 target="_blank"
                 rel="noreferrer"
               >
-                Apple Music
-              </a>
-              <div className="border-r border-black" />
-              <a
-                className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/iTunes"
-                target="_blank"
-                rel="noreferrer"
-              >
-                iTunes
-              </a>
-              <div className="border-r border-black" />
-              <a
-                className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/Pandora"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Pandora
-              </a>
-              <div className="border-r border-black" />
-              <a
-                className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/Soundcloud"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Soundcloud
-              </a>
-              <div className="border-r border-black" />
-              <a
-                className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/Spotify"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Spotify
-              </a>
-              <div className="border-r border-black" />
-              <a
-                className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/YouTube"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Youtube
-              </a>
-              <div className="border-r border-black" />
-              <a
-                className="hover:underline"
-                href="https://petermcpoland.lnk.to/DigitalSilence/YouTubeMusic"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Youtube Music
+                Blue
               </a>
             </div>
           </div>
@@ -559,6 +510,22 @@ export const App = () => {
           <div className="max-w-4xl p-10 m-auto text-center">
             <iframe
               className="w-full aspect-video"
+              src="https://www.youtube.com/embed/nOxH6KEh5n4"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+            <a
+              href="https://www.youtube.com/watch?v=nOxH6KEh5n4"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block px-4 py-0.5 mt-3 mb-10 text-black text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,#7fdcdd_0%,#9ffcfd_100%)] hover:bg-[linear-gradient(180deg,#9ffcfd_0%,#7fdcdd_100%)]"
+            >
+              Watch Now
+            </a>
+
+            <iframe
+              className="w-full aspect-video"
               src="https://www.youtube.com/embed/2x8CMV-Jxg8"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -568,7 +535,23 @@ export const App = () => {
               href="https://www.youtube.com/watch?v=2x8CMV-Jxg8"
               target="_blank"
               rel="noreferrer"
-              className="inline-block px-4 py-0.5 mt-3 text-black text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,#7fdcdd_0%,#9ffcfd_100%)] hover:bg-[linear-gradient(180deg,#9ffcfd_0%,#7fdcdd_100%)]"
+              className="inline-block px-4 py-0.5 mt-3 mb-10 text-black text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,#7fdcdd_0%,#9ffcfd_100%)] hover:bg-[linear-gradient(180deg,#9ffcfd_0%,#7fdcdd_100%)]"
+            >
+              Watch Now
+            </a>
+
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/LYx-O64lJZk"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+            <a
+              href="https://www.youtube.com/watch?v=LYx-O64lJZk"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block px-4 py-0.5 mt-3 mb-10 text-black text-md font-bold rounded-md border-2 border-[#5d8bb3] bg-[linear-gradient(180deg,#7fdcdd_0%,#9ffcfd_100%)] hover:bg-[linear-gradient(180deg,#9ffcfd_0%,#7fdcdd_100%)]"
             >
               Watch Now
             </a>
@@ -627,10 +610,22 @@ export const App = () => {
         </div>
       )}
 
+      {tab === "Tour" && (
+        <div className="bg-[#303030] text-white shrink-0">
+          <div className="max-w-4xl p-10 m-auto text-center">
+            <div
+              id="seated-55fdf2c0"
+              data-artist-id="2ac128fb-3852-4b93-a92c-9cae1485a81e"
+              data-css-version="3"
+            ></div>
+          </div>
+        </div>
+      )}
+
       <div
         ref={canvasContainerRef}
         className={`flex flex-col h-full p-5 overflow-y-hidden overflow-x-auto ${
-          tab === "Videos" ? "invisible" : ""
+          ["Videos", "Tour"].includes(tab ?? "") ? "invisible" : ""
         }`}
       >
         <div className="h-full aspect-[30/16] bg-white drop-shadow-[10px_10px_0px_rgba(0,0,0,0.3)] m-auto">
@@ -691,13 +686,15 @@ export const App = () => {
       )}
 
       <footer className="fixed bottom-0 w-full text-center uppercase text-white text-[10px] p-2 bg-[#121212]">
-        <div className="block lg:hidden absolute w-full text-center p-3 text-lg bottom-full capitalize pointer-events-none">
-          <div className="bg-[#333] border border-[#555] inline-block px-3">
-            <span className="relative bottom-0.5">&larr; </span>
-            Scroll
-            <span className="relative bottom-0.5"> &rarr;</span>
+        {["Home", "Tour"].includes(tab ?? "") && (
+          <div className="block lg:hidden absolute w-full text-center p-3 text-lg bottom-full capitalize pointer-events-none">
+            <div className="bg-[#333] border border-[#555] inline-block px-3">
+              <span className="relative bottom-0.5">&larr; </span>
+              Scroll
+              <span className="relative bottom-0.5"> &rarr;</span>
+            </div>
           </div>
-        </div>
+        )}
         &copy; 2023 Sony Music Entertainment <br />
         <a
           href="http://www.sonymusic.com/privacy/termsandconditions.html"
