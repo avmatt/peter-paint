@@ -37,7 +37,8 @@ import squareIcon from "./images/icon-square.png";
 import circleIcon from "./images/icon-circle.png";
 import diamondIcon from "./images/icon-diamond.png";
 import brushIcon from "./images/icon-brush.png";
-import piggy from "./images/piggy-website-pic-2.png";
+import piggy from "./images/piggy-website-bg.png";
+import peterMcPolandLogo from "./images/logo-peter-mcpoland.png";
 
 export const App = () => {
   const navOptions = ["Home", "Music", "Videos", "Socials", "Tour"] as const;
@@ -159,6 +160,14 @@ export const App = () => {
     <>
       <div className="fixed z-10 top-0 left-0 w-full sm:flex bg-black p-2 text-white gap-1 shrink-0">
         <div className="flex h-8 shrink-0">
+          <a className="block" href="https://petermcpoland.com/">
+            <img
+              className="h-full"
+              src={peterMcPolandLogo}
+              alt="Peter McPoland"
+            />
+          </a>
+          <div className="mx-2 my-1 border-r border-gray-600" />
           <a className="block my-1" href="https://petermcpoland.com/">
             <img
               className="h-full"
