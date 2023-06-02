@@ -41,7 +41,14 @@ import piggy from "./images/piggy-website-bg.png";
 import peterMcPolandLogo from "./images/logo-peter-mcpoland.png";
 
 export const App = () => {
-  const navOptions = ["Home", "Music", "Videos", "Socials", "Tour"] as const;
+  const navOptions = [
+    "Home",
+    "Music",
+    "Pre-Save",
+    "Videos",
+    "Socials",
+    "Tour",
+  ] as const;
   const [tab, setTab] = useState<(typeof navOptions)[number] | null>(() => {
     if (window.location.hash === "#tour") {
       return "Tour";
@@ -208,20 +215,33 @@ export const App = () => {
       <div className="bg-black text-md leading-[48px] pt-32 xs:pt-24 sm:pt-14 overflow-x-auto overflow-y-hidden shrink-0">
         <div className="flex min-w-[360px] border-b border-[#555]">
           {navOptions.map((option) => (
-            <button
-              key={option}
-              className={`relative top-px px-3 sm:px-6 py-1 bg-clip-border border border-transparent ${
-                tab === option
-                  ? "text-white bg-[#303030] border-x border-x-[#555] border-t-[#555]"
-                  : "text-white/50 hover:text-white hover:bg-[#202020]  border-b-[#555]"
-              }`}
-              onClick={() => {
-                setTab(option);
-                window.location.hash = "";
-              }}
-            >
-              {option}
-            </button>
+            <>
+              {option === "Pre-Save" ? (
+                <a
+                  href="https://petermcpoland.lnk.to/presave"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative top-px px-3 sm:px-6 py-1 whitespace-nowrap text-white/50 hover:text-white hover:bg-[#202020] border-b border-[#555]"
+                >
+                  Pre-Save
+                </a>
+              ) : (
+                <button
+                  key={option}
+                  className={`relative top-px px-3 sm:px-6 py-1 bg-clip-border border border-transparent ${
+                    tab === option
+                      ? "text-white bg-[#303030] border-x border-x-[#555] border-t-[#555]"
+                      : "text-white/50 hover:text-white hover:bg-[#202020]  border-b-[#555]"
+                  }`}
+                  onClick={() => {
+                    setTab(option);
+                    window.location.hash = "";
+                  }}
+                >
+                  {option}
+                </button>
+              )}
+            </>
           ))}
           <a
             href="https://shop.petermcpoland.com/"
@@ -230,14 +250,6 @@ export const App = () => {
             className="relative top-px px-3 sm:px-6 py-1 text-white/50 hover:text-white hover:bg-[#202020] border-b border-[#555]"
           >
             Merch
-          </a>
-          <a
-            href="https://petermcpoland.lnk.to/presave"
-            target="_blank"
-            rel="noreferrer"
-            className="relative top-px px-3 sm:px-6 py-1 whitespace-nowrap text-white/50 hover:text-white hover:bg-[#202020] border-b border-[#555]"
-          >
-            Pre-Save
           </a>
           <div className="relative top-px w-full border-b border-[#555]" />
         </div>
