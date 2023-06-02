@@ -208,7 +208,7 @@ export const App = () => {
           <h1 className="text-2xl font-bold">
             Peter McPoland<span className="hidden xs:inline"> - </span>
             <br className="xs:hidden" />
-            Blue
+            Piggy
           </h1>
         </div>
       </div>
