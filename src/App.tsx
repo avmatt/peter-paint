@@ -41,7 +41,12 @@ import piggy from "./images/piggy-website-pic-2.png";
 
 export const App = () => {
   const navOptions = ["Home", "Music", "Videos", "Socials", "Tour"] as const;
-  const [tab, setTab] = useState<(typeof navOptions)[number] | null>("Home");
+  const [tab, setTab] = useState<(typeof navOptions)[number] | null>(() => {
+    if (window.location.hash === "#tour") {
+      return "Tour";
+    }
+    return "Home";
+  });
   const [tool, setTool] = useState<string | null>(null);
   const [color, setColor] = useState("#000");
   const [brushSize, setBrushSize] = useState("2");
@@ -201,7 +206,10 @@ export const App = () => {
                   ? "text-white bg-[#303030] border-x border-x-[#555] border-t-[#555]"
                   : "text-white/50 hover:text-white hover:bg-[#202020]  border-b-[#555]"
               }`}
-              onClick={() => setTab(option)}
+              onClick={() => {
+                setTab(option);
+                window.location.hash = "";
+              }}
             >
               {option}
             </button>
